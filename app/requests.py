@@ -1,4 +1,5 @@
 import urllib.request, json
+from .models import News
 
 api_key = None
 base_url = None
@@ -21,16 +22,33 @@ def get_news():
             news_results_list = get_news_response['results']
             news_results = process_results(news_results_list)
             
-        return news_results
+    return news_results
+
     
 def process_results(news_list):
     """
     Function to process the news result and then to a list of objects
     Args:
         news_list: A list of dictionaries containing news list
+        
     Returns: 
         news_list: A list of news objects
     """
     
-    news_list = []
-    pass
+    news_result = []
+    for news_item in news_list:
+        id = news_item.get('id')
+        name = news_item.get('name')
+        author = news_item.get('author')
+        title = news_item.get('title')
+        description = news_item.get('description')
+        url = news_item.get('url')
+        urlToImage = news_item.get('urlToImage')
+        publishedAt = news_item.get('publishedAt')
+        content = news_item.get('content')
+        
+        if urlToImage:
+            news_object = News(id, name, author, title, description, url, urlToImage, publishedAt, content)
+            news_result.append(news_object)
+            
+    return news_result
