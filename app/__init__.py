@@ -10,9 +10,14 @@ def create_app(config_name):
     
     # Creating the app configs
     app.config.from_object(config_options[config_name])
+    bootstrap.init_app(app)
     
     # Register the Blueprint
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
+    
+    # setting Config
+    from .requests import configure_request
+    configure_request(app)
     
     return app

@@ -3,7 +3,9 @@ import os
 class Config:
     """Parent configuration class"""
 
-    NEWS_API_BASE_URL = "https://newsapi.org/v2/top-headlines?country=ke&api_Key={}"
+    NEWS_API_BASE_URL = "https://newsapi.org/v2/top-headlines?language=en&category={}&api_Key={}"
+    NEWS_SOURCES_API = "https://newsapi.org/v2/top-headlines/sources?category={}&api_Key={}"
+    ARTICLES_QUERY_API = "https://newsapi.org/v2/everything?q={}&apiKey={}"
     NEWS_API_KEY = os.environ.get('NEWS_API_KEY')
     SECRET_KEY = os.environ.get('SECRET_KEY')
 
