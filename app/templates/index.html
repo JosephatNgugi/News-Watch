@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+
+<!-- Styles block -->
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+{% endblock %}
+
+<!-- Content block -->
+{% block content %}
+<div class="container">
+    <h2 class="text-center">Top Headlines In Kenya</h2>
+    <!-- General News Headlines -->
+    <div class="row">
+        <h3>General News Section</h3>
+        <ul>
+            {{macro.displayNewsList(general)}}
+        </ul>
+    </div>
+</div>
+<!-- Sports News Headlines -->
+<div class="container">
+            <h2 class="text-center">Top Headlines In Kenya</h2>
+    <div class="row">
+        <h3>Sports News Section</h3>
+        <ul>
+            {{macro.displayNewsList(sports)}}
+        </ul>
+    </div>
+</div>
+{% endblock %}
