@@ -3,30 +3,33 @@
 
 <!-- Styles block -->
 {% block styles %}
-{{super()}}
-<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 {% endblock %}
 
 <!-- Content block -->
 {% block content %}
 <div class="container">
-    <h2 class="text-center">Top Headlines In Kenya</h2>
+    <!-- NEWS Sources -->
+    <h2 class="text-center font-weight-bold">News Sources</h2>
+    {{macro.displaySourcesList(sources)}}
+
+    <h2 class="text-center font-weight-bold">Top Headlines</h2>
     <!-- General News Headlines -->
     <div class="row">
-        <h3>General News Section</h3>
-        <ul>
-            {{macro.displayNewsList(general)}}
-        </ul>
-    </div>
-</div>
-<!-- Sports News Headlines -->
-<div class="container">
-            <h2 class="text-center">Top Headlines In Kenya</h2>
-    <div class="row">
-        <h3>Sports News Section</h3>
-        <ul>
-            {{macro.displayNewsList(sports)}}
-        </ul>
+        <div class="col-8 col-md-7">
+            <h3 class="text-center font-weight-bold">General News Section</h3>
+            <div>
+                {{macro.displayNewsList(general)}}
+            </div>
+        </div>
+        <!-- Sports News Headlines -->
+        <div class="col-4 col-md-5">
+         <h3 class="text-center font-weight-bold">Sports News Section</h3>
+            <div>
+                {{macro.displayNewsList(sports)}}
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

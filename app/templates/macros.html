@@ -1,12 +1,27 @@
+<!-- {% macro displaySourcesList(sources_list) %}
+        {% for source in sources_list %}
+            <div class="news-card">
+                <p class="text-center pb-5">
+                    <a href="{{source.url}}" target="_blank">
+                        {{source.title}}
+                    </a>
+                </p>
+            </div>
+        {% endfor %}    
+{% endmacro %} -->
+
 {% macro displayNewsList(news_list) %}
-    {% for news in news_list %}
-        <div class="col news-card">
-            <img src="{{news.urlToImage}}" alt="{{news.name}} image" class="img-responsive">
-            <li class="text-center">
-                <a href="/news/{{news.id}}">
-                    {{news.title}}
-                </a>
-            </li>
-        </div>
-        {% endfor %}
-    {% endmacro %}
+{% for news in news_list %}
+    <div class="col-md-4 col col-sm-2 news-card">
+        <img src="{{news.urlToImage}}" alt="{{news.name}} image" class="img-responsive">
+        <span style="font-size: 1rem; padding: 5px; text-align: center;">Posted on: {{news.publishedAt[:10]}} at {{news.publishedAt[11:19]}}</span>
+        <br>
+        <p class="text-center pb-5">
+            <a href="{{news.url}}" target="_blank">
+                {{news.title}}
+            </a>
+        </p>
+    </div>
+
+{% endfor %}    
+{% endmacro %}
