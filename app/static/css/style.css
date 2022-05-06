@@ -1,0 +1,25 @@
+/* navbar-nav{
+    padding-left: 5rem;
+}
+
+.container-grid{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 1rem;
+  
+}
+.news-cards{
+  padding: 3rem;
+  margin: 2rem;
+} */
+.general{
+  background-color: beige;
+}
+
+.sports{
+  border: #433f3f solid;
+  background-color: rgba(114, 190, 217, 0.694);
+}
+a{
+  color: #000000;
+}
