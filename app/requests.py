@@ -38,7 +38,7 @@ def process_results(news_list):
         news_list: A list of news objects
     """
     
-    news_result = []
+    news_results = []
     for news_item in news_list:
         id = news_item.get('id')
         name = news_item.get('name')
@@ -51,13 +51,13 @@ def process_results(news_list):
         content = news_item.get('content')
         
         news_object = News(id, name, author, title, description, url, urlToImage, publishedAt, content)
-        news_result.append(news_object)
+        news_results.append(news_object)
             
-    return news_result
+    return news_results
 
-def get_sources(sources):
+def get_sources(language):
     """Function that gets the json response to our url request"""
-    get_sources_url = sources_url.format(sources, api_key)
+    get_sources_url = sources_url.format(language, api_key)
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
         get_sources_response = json.loads(get_sources_data)
