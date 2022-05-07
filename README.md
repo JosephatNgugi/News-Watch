@@ -22,7 +22,7 @@ An python web application showing various news articles from different worldwide
 
 -----
 ## Host Link
-Click on this link to view the live website: https://git.heroku.com/newsbyjoe.git
+Click on this link to view the live website: https://newsbyjoe.herokuapp.com/
 
 -----
 ## Known Bugs
